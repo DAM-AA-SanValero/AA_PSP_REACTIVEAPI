@@ -1,0 +1,5 @@
+com\svalero\App.class
+com\svalero\controller\AppController.class
+com\svalero\service\DbdAPI.class
+com\svalero\model\CharacterInfo.class
+com\svalero\util\R.class
