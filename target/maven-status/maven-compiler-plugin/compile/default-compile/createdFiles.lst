@@ -1,14 +1,14 @@
 com\svalero\App.class
 com\svalero\controller\AppController.class
-com\svalero\model\Events.class
 com\svalero\controller\PerksController.class
 com\svalero\controller\CharactersController.class
 com\svalero\util\ZipFile.class
 com\svalero\model\Characters.class
 com\svalero\model\Perks.class
 com\svalero\service\DbdAPI.class
+com\svalero\model\CharacterManager.class
+com\svalero\model\PerksCollection.class
 com\svalero\service\DbdService.class
-com\svalero\model\CharactersResponse.class
 com\svalero\util\R.class
 com\svalero\task\PerkTask.class
 com\svalero\task\CharacterTask.class

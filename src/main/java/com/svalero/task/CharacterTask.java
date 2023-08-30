@@ -10,11 +10,7 @@ import javafx.concurrent.Task;
 import java.util.List;
 
 public class CharacterTask extends Task<Integer> {
-
-    private String requestedCharacter;
-
     private ObservableList<String> results;
-
     private int counter;
 
     public CharacterTask(ObservableList<String> results) {
@@ -40,11 +36,11 @@ public class CharacterTask extends Task<Integer> {
                         this.counter++;
                         Thread.sleep(300);
                         String characterName
-                                = character.getName() + " - "
-                                + character.getRole().toUpperCase() + " - "
-                                + character.getGender() + " - "
+                                = character.getName()
+                                + " ("+ character.getGender() +") -> "
+                                + character.getRole().toUpperCase() + "  |  Height: "
                                 + character.getHeight();
-                        updateMessage(this.counter + " characters found");
+                        updateMessage(this.counter + " Characters found");
                         Platform.runLater(() -> results.add(characterName));
                     }
                 }

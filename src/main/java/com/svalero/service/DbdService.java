@@ -3,6 +3,8 @@ package com.svalero.service;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.svalero.model.Characters;
+import com.svalero.model.Perks;
+import com.svalero.model.PerksCollection;
 import io.reactivex.Observable;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -56,19 +58,25 @@ public class DbdService {
                     }
                 });
     }
-
-
-
-
-
-
-
-
-    public Observable<String> getPerk(String perks){
-        return this.dbdAPI.getPerksInfo(perks).map(perk -> {
-            return perk.getName();
-        });
+    public Observable<List<Perks>> getPerks() {
+        return this.dbdAPI.getPerksInfo()
+                .map(perks -> {
+                    if (perks != null) {
+                        List<Perks> perksList = new ArrayList<>();
+                        for (Map.Entry<String, Perks> entry : perks.entrySet()) {
+                            Perks perk = entry.getValue();
+                            perksList.add(perk);
+                        }
+                        return perksList;
+                    } else {
+                        throw new NullPointerException("Perk list is null");
+                    }
+                });
     }
+
+
+
+
 
 
 }

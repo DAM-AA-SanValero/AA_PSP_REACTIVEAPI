@@ -20,10 +20,7 @@ public class AppController {
     @FXML
     private TextField inputInfo;
     @FXML
-    private Button btnInfo;
-
-    @FXML
-    private TabPane tpCharacters;
+    private TabPane tpInfo;
 
     @FXML
     public void listCharacters(ActionEvent event){
@@ -34,12 +31,36 @@ public class AppController {
         loader.setController(charactersController);
         try{
             VBox dbdApp = loader.load();
-            if(tpCharacters != null){
-                tpCharacters.setTabClosingPolicy(TabPane.TabClosingPolicy.ALL_TABS);
+            if(tpInfo != null){
+                tpInfo.setTabClosingPolicy(TabPane.TabClosingPolicy.ALL_TABS);
 
                 Tab newTab = new Tab("Characters");
                 newTab.setContent(dbdApp);
-                tpCharacters.getTabs().add(newTab);
+                tpInfo.getTabs().add(newTab);
+            } else{
+                System.out.println("No muestro nada");
+            }
+
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void listPerks(ActionEvent event){
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(R.getUI("results.fxml"));
+        PerksController perksController = new PerksController();
+        loader.setController(perksController);
+        try{
+            VBox dbdApp = loader.load();
+            if(tpInfo != null){
+                tpInfo.setTabClosingPolicy(TabPane.TabClosingPolicy.ALL_TABS);
+
+                Tab newTab = new Tab("Perks");
+                newTab.setContent(dbdApp);
+                tpInfo.getTabs().add(newTab);
             } else{
                 System.out.println("No muestro nada");
             }

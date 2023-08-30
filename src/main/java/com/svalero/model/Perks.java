@@ -4,14 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Perks {
 
-    int characterPerk;
-    String name;
-    String description;
-    String role;
-
+    private String name;
+    private String description;
+    private String role;
+    private int character;
 }

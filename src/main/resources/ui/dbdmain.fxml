@@ -31,14 +31,14 @@
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin></Button>
-                        <Button fx:id="btnInfo1" mnemonicParsing="false" onAction="#listCharacters" prefHeight="25.0" prefWidth="80.0" text="Perks">
+                        <Button fx:id="btnPerks" mnemonicParsing="false" onAction="#listPerks" prefHeight="25.0" prefWidth="80.0" text="Perks">
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Button>
                      </children>
                   </HBox>
-                  <TabPane fx:id="tpCharacters" prefHeight="284.0" prefWidth="596.0" tabClosingPolicy="UNAVAILABLE" />
+                  <TabPane fx:id="tpInfo" prefHeight="284.0" prefWidth="596.0" tabClosingPolicy="UNAVAILABLE" />
                </children>
             </VBox>
          </children>

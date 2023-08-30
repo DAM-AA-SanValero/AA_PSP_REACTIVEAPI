@@ -17,8 +17,6 @@ public class CharactersController {
     private ObservableList<String> results;
     private CharacterTask characterTask;
 
-    private String requestedCharacter;
-
     public CharactersController() {
         this.results = FXCollections.observableArrayList();
     }
