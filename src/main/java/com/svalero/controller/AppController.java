@@ -26,7 +26,7 @@ public class AppController {
     public void listCharacters(ActionEvent event){
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(R.getUI("results.fxml"));
+        loader.setLocation(R.getUI("characterResults.fxml"));
         CharactersController charactersController = new CharactersController();
         loader.setController(charactersController);
         try{
@@ -50,7 +50,7 @@ public class AppController {
     public void listPerks(ActionEvent event){
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(R.getUI("results.fxml"));
+        loader.setLocation(R.getUI("perkResults.fxml"));
         PerksController perksController = new PerksController();
         loader.setController(perksController);
         try{
@@ -62,7 +62,7 @@ public class AppController {
                 newTab.setContent(dbdApp);
                 tpInfo.getTabs().add(newTab);
             } else{
-                System.out.println("No muestro nada");
+                System.out.println("Nothing to show");
             }
 
         } catch (IOException e){

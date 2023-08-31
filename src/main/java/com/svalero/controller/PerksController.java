@@ -9,11 +9,15 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ProgressBar;
 
 public class PerksController {
 
+
     @FXML
-    private Label lbFounded;
+    private ProgressBar loadAllPerks;
+    @FXML
+    private Label percentageProgress;
     @FXML
     private ListView<String> resultList;
     private ObservableList<String> results;
@@ -31,7 +35,17 @@ public class PerksController {
         this.results.clear();
         this.resultList.setItems(this.results);
         this.perkTask = new PerkTask(this.results, characterManager);
-        this.perkTask.messageProperty().addListener((observableValue, oldValue, newValue) -> this.lbFounded.setText(newValue));
+
+        loadAllPerks.progressProperty().bind(perkTask.progressProperty());
+        this.perkTask.progressProperty().addListener((observableValue, oldValue, newValue) -> {
+            double percentage;
+            if(newValue == null){
+                percentage = 0.0;
+            } else {
+                percentage = newValue.doubleValue();
+            }
+            percentageProgress.setText(String.format("%.0f%%", percentage * 100));
+        });
         new Thread(perkTask).start();
     }
 

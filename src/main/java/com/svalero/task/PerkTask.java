@@ -30,23 +30,25 @@ public class PerkTask extends Task<Integer> {
         try {
             DbdService dbdService = new DbdService();
             dbdService.getPerks().subscribe(response -> {
-                System.out.println("Response JSON: " + response); // Imprime la respuesta JSON
+                System.out.println("Response in JSON: " + response);
             }, throwable -> {
                 System.out.println("Error: " + throwable.getMessage());
             });
 
             Consumer<List<Perks>> user = (perks) -> {
                 if (perks != null) {
+                    int totalPerks = perks.size();
                     for (Perks perk : perks) {
                         this.counter++;
                         Thread.sleep(300);
                         String perkName
-                                = perk.getName()
+                                = "Perk: " + perk.getName()
                                 + " ("+ characterManager.getNameById(perk.getCharacter())+") -> "
                                 + perk.getRole().toUpperCase();
 
                         updateMessage(this.counter + " Perks found");
                         Platform.runLater(() -> results.add(perkName));
+                        updateProgress(counter, totalPerks);
                     }
                 }
             };
