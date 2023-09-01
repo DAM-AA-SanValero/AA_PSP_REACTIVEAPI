@@ -26,6 +26,11 @@
                   <Insets left="10.0" right="60.0" />
                </HBox.margin>
             </Label>
+            <Button fx:id="filterM" mnemonicParsing="false" onAction="#filterBySurvivor" text="Filter by survivor">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin></Button>
+            <Button fx:id="filterF" mnemonicParsing="false" onAction="#filterByKiller" text="Filter by killer" />
          </children>
          <VBox.margin>
             <Insets />

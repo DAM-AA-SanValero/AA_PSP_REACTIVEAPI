@@ -12,9 +12,11 @@ import javafx.concurrent.Task;
 import java.util.List;
 import java.util.Map;
 
-public class PerkTask extends Task<Integer> {
+public class PerkTask extends Task<List<Perks>> {
 
     private ObservableList<String> results;
+
+    private List<Perks> allPerks;
     private int counter;
 
     private CharacterManager characterManager;
@@ -26,7 +28,7 @@ public class PerkTask extends Task<Integer> {
 
     }
     @Override
-    protected Integer call() throws Exception {
+    protected List<Perks> call() throws Exception {
         try {
             DbdService dbdService = new DbdService();
             dbdService.getPerks().subscribe(response -> {
@@ -38,6 +40,7 @@ public class PerkTask extends Task<Integer> {
             Consumer<List<Perks>> user = (perks) -> {
                 if (perks != null) {
                     int totalPerks = perks.size();
+                    allPerks = perks;
                     for (Perks perk : perks) {
                         this.counter++;
                         Thread.sleep(300);
@@ -61,7 +64,7 @@ public class PerkTask extends Task<Integer> {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return allPerks;
     }
 
 
