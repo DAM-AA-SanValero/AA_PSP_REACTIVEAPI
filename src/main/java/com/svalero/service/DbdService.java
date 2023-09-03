@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.svalero.model.Characters;
 import com.svalero.model.Perks;
-import com.svalero.model.PerksCollection;
 import io.reactivex.Observable;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -22,7 +21,7 @@ public class DbdService {
 
     private DbdAPI dbdAPI;
 
-    public DbdService(){
+    public DbdService() {
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
@@ -58,6 +57,7 @@ public class DbdService {
                     }
                 });
     }
+
     public Observable<List<Perks>> getPerks() {
         return this.dbdAPI.getPerksInfo()
                 .map(perks -> {
@@ -73,10 +73,4 @@ public class DbdService {
                     }
                 });
     }
-
-
-
-
-
-
 }

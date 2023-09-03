@@ -4,7 +4,6 @@ import com.svalero.util.R;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
@@ -15,10 +14,6 @@ import java.io.IOException;
 
 public class AppController {
 
-    @FXML
-    private ImageView imageChar;
-    @FXML
-    private TextField inputInfo;
     @FXML
     private TabPane tpInfo;
 

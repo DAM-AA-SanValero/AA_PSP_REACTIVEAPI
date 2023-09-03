@@ -20,7 +20,8 @@ public class CharacterManager {
         this.characterIdToNameMap.put(9, "David King");
         this.characterIdToNameMap.put(10, "Kate Denson");
         this.characterIdToNameMap.put(11, "Quentin Smith");
-
+        //Aquí añado manualmente el id y el nombre del personaje para mostrar el nombre
+        //entre parentesis al listar las PERKS
         this.characterIdToNameMap.put(null, "General Perk");
     }
 
