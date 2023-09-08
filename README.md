@@ -28,5 +28,7 @@ Como filtros, dentro del proyecto he filtrado:
 
 Estos filtrados han sido realizados externos a la API
 
+Finalmente he añadido que se puedan exportar a CSV la lista de Characters y Perks
+
 Todo este código esta documentado en **GITHUB**:
 https://github.com/Joserra2304/AA_PSP_REACTIVEAPI.git
