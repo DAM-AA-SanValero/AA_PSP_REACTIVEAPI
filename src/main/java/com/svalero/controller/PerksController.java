@@ -1,18 +1,25 @@
 package com.svalero.controller;
 
+import com.opencsv.CSVWriter;
 import com.svalero.model.CharacterManager;
 import com.svalero.model.Characters;
 import com.svalero.model.Perks;
 import com.svalero.task.CharacterTask;
 import com.svalero.task.PerkTask;
+import com.svalero.util.ZipFile;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressBar;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -99,6 +106,27 @@ public class PerksController {
                         + perk.getRole().toUpperCase())
                 .collect(Collectors.toList());
         resultList.setItems(FXCollections.observableArrayList(stringPerks));
+    }
+
+    @FXML
+    public void exportCSV(ActionEvent event) {
+        String outputFileName = System.getProperty("user.dir") + System.getProperty("file.separator")
+                + "Perks.csv";
+
+        File outputFile = new File(outputFileName);
+        try {
+            FileWriter writer = new FileWriter(outputFile);
+            CSVWriter csvWriter = new CSVWriter(writer);
+            List<String[]> data = new ArrayList<String[]>();
+            for (String definition : this.results){
+                data.add(new String[] {definition, String.valueOf(Math.random())});
+            }
+            csvWriter.writeAll(data);
+            csvWriter.close();
+            ZipFile.createZipFile(outputFileName);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
 }

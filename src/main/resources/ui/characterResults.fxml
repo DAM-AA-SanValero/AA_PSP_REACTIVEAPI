@@ -16,6 +16,7 @@
          </VBox.margin></ListView>
       <HBox alignment="TOP_CENTER" prefHeight="86.0" prefWidth="600.0" style="-fx-background-color: #000;">
          <children>
+            <Button fx:id="exportCSV" mnemonicParsing="false" onAction="#exportCSV" text="Export" />
             <ProgressBar fx:id="loadAllCharacters">
                <HBox.margin>
                   <Insets left="20.0" />
